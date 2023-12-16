@@ -18,6 +18,7 @@ public class RemoveElements {
         for (int i = 0; i < nums.length; i++) {
 
         }
+        return 0;
     }
 
 }
