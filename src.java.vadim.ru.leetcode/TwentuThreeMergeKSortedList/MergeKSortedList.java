@@ -1,6 +1,6 @@
 package TwentuThreeMergeKSortedList;
 
-import java.util.*;
+import Utils.ListNode;
 
 public class MergeKSortedList {
 
