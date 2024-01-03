@@ -23,9 +23,9 @@ public class Main {
         if (grid.length == 0) return 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j] == 1) {
-                    bfs(grid, i, j);
-                    counter++;
+                if (grid[i][j] == 1) { // Ищем остров
+                    bfs(grid, i, j); // отправляем в поиск соседей
+                    counter++; // увеличиваем счетчик поиска
                 }
             }
         }
@@ -33,17 +33,17 @@ public class Main {
     }
 
     private static void bfs(char[][] grid, int rowPosition, int cowPosition) {
-        grid[rowPosition][cowPosition] = 2;
-        if (cowPosition != 0 && grid[rowPosition][cowPosition - 1] == 1) {
-            bfs(grid, rowPosition, cowPosition - 1);
+        grid[rowPosition][cowPosition] = 2; // помечаем как обработаный
+        if (cowPosition != 0 && grid[rowPosition][cowPosition - 1] == 1) { // смотрим соседа слева
+            bfs(grid, rowPosition, cowPosition - 1); // если да, отправляем рекурсивно с параметрами найденного подходящего соседа.
         }
-        if (cowPosition != grid[rowPosition].length - 1 && grid[rowPosition][cowPosition + 1] == 1) {
+        if (cowPosition != grid[rowPosition].length - 1 && grid[rowPosition][cowPosition + 1] == 1) { // смотрим вправо
             bfs(grid, rowPosition,cowPosition + 1);
         }
-        if (rowPosition != 0 && grid[rowPosition - 1][cowPosition] == 1) {
+        if (rowPosition != 0 && grid[rowPosition - 1][cowPosition] == 1) { // смотрим вниз
             bfs(grid, rowPosition - 1, cowPosition);
         }
-        if (rowPosition != grid.length - 1 && grid[rowPosition + 1][cowPosition] == 1) {
+        if (rowPosition != grid.length - 1 && grid[rowPosition + 1][cowPosition] == 1) { // сомтрим вверх
             bfs(grid, rowPosition + 1, cowPosition);
         }
     }
