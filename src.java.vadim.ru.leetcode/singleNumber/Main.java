@@ -9,8 +9,8 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
-        int[] nums = new int[]{1};
-        System.out.println(singleNumber(nums));
+        int[] nums = new int[]{4,1,2,1,2};
+        System.out.println(singleNumber2(nums));
     }
 
     public static int singleNumber(int[] nums) {
@@ -25,5 +25,15 @@ public class Main {
             }
         }
         return map.keySet().stream().findAny().get();
+    }
+
+    public static int singleNumber2(int[] nums) {
+        int x = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            x = x ^ num;
+            System.out.println();
+        }
+        return x;
     }
 }
