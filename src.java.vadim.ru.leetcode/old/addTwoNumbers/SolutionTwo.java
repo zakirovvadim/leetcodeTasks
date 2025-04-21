@@ -19,9 +19,11 @@ public class SolutionTwo {
         while (l1 != null || l2 != null || carry != 0) {
             int val1;
             int val2;
+
             if (l1 != null) {
                 val1 = l1.val;
             } else val1 = 0;
+
             if (l2 != null) {
                 val2 = l2.val;
             } else val2 = 0;
