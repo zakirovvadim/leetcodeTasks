@@ -35,12 +35,13 @@ public class LeafSimilar {
         );
     }
 
+    // обход как и в MaximumDepthofBinaryTree
     public static boolean leafSimilar(TreeNode root1, TreeNode root2) {
         String dfs = dfs(root1);
         String dfs2 = dfs(root2);
         System.out.println(dfs);
         System.out.println(dfs2);
-        return Objects.equals(dfs, dfs2);
+        return Objects.equals(dfs, dfs2); // полученные строки просто проверяются на равенство
     }
 
     private static String dfs(TreeNode treeNode) {
@@ -54,7 +55,7 @@ public class LeafSimilar {
             TreeNode node = nodes.pop();
             Integer deep = depth.pop();
             max = Math.max(max, deep);
-            if (node.right == null && node.left == null) {
+            if (node.right == null && node.left == null) { // только добавляется првоерка что это конечный элемент и записывается в стрингбилдер
                 res.append(node.val);
                 res.append(".");
                 continue;
