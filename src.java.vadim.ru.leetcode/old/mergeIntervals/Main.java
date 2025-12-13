@@ -2,6 +2,7 @@ package old.mergeIntervals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class Main {
 
     public static int[][] merge(int[][] intervals) {
         if (intervals.length <= 1) return intervals;
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
         List<int[]> resultList = new ArrayList<>();
         resultList.add(intervals[0]);
         for (int i = 1; i < intervals.length; i++) {
